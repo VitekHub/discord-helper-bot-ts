@@ -55,6 +55,7 @@ Technical Features:
    - Install and run Ollama locally
    - Set `AI_PROVIDER=ollama` in `.env`
    - Configure `OLLAMA_HOST` and `OLLAMA_MODEL` in `.env`
+   - For a tutorial on using Ollama, check out [this video guide](https://odysee.com/@NaomiBrockwell:4/Local-LLM:d)
 
 5. Configure the bot:
    - Copy `.env.example` to `.env`
