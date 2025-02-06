@@ -41,18 +41,39 @@ export abstract class BaseCommand {
   }
 
   protected async handleError(error: unknown): Promise<void> {
-    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+    let errorMessage = error instanceof Error ? error.message : '❌ Došlo k neznámé chybě';
+    
+    // Add user-friendly message for network errors
+    if (error instanceof Error && error.message.toLowerCase().includes('network')) {
+      errorMessage = '🌐 Chyba připojení k AI službě. Zkontrolujte připojení a zkuste to znovu.';
+    }
+
     try {
-      if (this.interaction.deferred) {
-        await this.interaction.editReply(`Error: ${errorMessage}`);
-      } else {
-        await this.interaction.reply({
-          content: `Error: ${errorMessage}`,
+      // Always try to delete the deferred reply first if it exists
+      if (this.interaction.deferred || this.interaction.replied) {
+        try {
+          await this.interaction.deleteReply();
+        } catch (deleteError) {
+          console.error('Failed to delete deferred reply:', deleteError);
+        }
+      }
+
+      // Send a new error message
+      await this.interaction.reply({
+        content: errorMessage,
+        ephemeral: true,
+      });
+    } catch (replyError) {
+      console.error('Nepodařilo se odeslat chybovou zprávu:', replyError);
+      // Last resort - try to follow up if everything else failed
+      try {
+        await this.interaction.followUp({
+          content: errorMessage,
           ephemeral: true,
         });
+      } catch (followUpError) {
+        console.error('Failed to send follow-up error message:', followUpError);
       }
-    } catch (replyError) {
-      console.error('Failed to send error message:', replyError);
     }
   }
 }

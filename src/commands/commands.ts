@@ -102,6 +102,18 @@ export async function registerCommands(client: Client): Promise<void> {
       name: 'help',
       description: 'Display command help',
     },
+    {
+      name: 'enhance',
+      description: 'Enhance message formatting with headings, emojis and better structure',
+      options: [
+        {
+          name: 'message',
+          description: 'Message to enhance',
+          type: ApplicationCommandOptionType.String,
+          required: true,
+        },
+      ],
+    },
   ];
 
   if (!client.application) {

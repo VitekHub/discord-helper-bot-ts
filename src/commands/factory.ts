@@ -4,6 +4,7 @@ import { FilterCommand } from './filter';
 import { VitalCommand } from './vital';
 import { FindCommand } from './find';
 import { HelpCommand } from './help';
+import { EnhanceCommand } from './enhance';
 import { MessageService } from '../services/message';
 import { AiService } from '../services/ai';
 import { Config } from '../utils/config';
@@ -26,6 +27,8 @@ export class CommandFactory {
         return childContainer.resolve(FindCommand);
       case 'help':
         return childContainer.resolve(HelpCommand);
+      case 'enhance':
+        return childContainer.resolve(EnhanceCommand);
       default:
         throw new Error('Unknown command');
     }

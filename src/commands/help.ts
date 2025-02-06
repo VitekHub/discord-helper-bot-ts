@@ -43,6 +43,10 @@ Analyze messages with a custom prompt
 - prompt: Your custom analysis prompt
 - count: Number of messages to analyze (default: 100)
 
+**/enhance [message]**
+Enhance message formatting with headings, emojis and better structure
+- message: Text to enhance
+
 **/help**
 Display this help message
     `.trim();
