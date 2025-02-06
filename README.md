@@ -1,4 +1,4 @@
-# Discord AI Summarizer Bot
+# Discord AI Helper Bot
 
 A powerful Discord bot that leverages Google's Gemini Pro AI or Ollama to summarize and analyze channel conversations. Built with TypeScript and modern dependency injection patterns.
 
@@ -75,12 +75,12 @@ Technical Features:
 
 1. Build the image:
    ```bash
-   docker build -t discord-ai-summarizer .
+   docker build -t discord-ai-helper .
    ```
 
 2. Run the container:
    ```bash
-   docker run -d --env-file .env discord-ai-summarizer
+   docker run -d --env-file .env discord-ai-helper
    ```
 
 ## Project Structure
@@ -133,7 +133,7 @@ src/
 - `/help` - Show help information
 - `/sum-links [first_message_link] [last_message_link]` - Summarize messages between two message links
 - `/sum-ids [first_message_id] [last_message_id]` - Summarize messages between two message IDs
-- `/vital [count]` - Extract vital information in Czech
+- `/vital [count]` - Extract vital information
 - `/find [prompt] [count]` - Analyze messages using a custom prompt
 - `/enhance [message]` - Enhance message formatting using AI
 

@@ -70,7 +70,7 @@ export async function registerCommands(client: Client): Promise<void> {
     },
     {
       name: 'vital',
-      description: 'Extract vital information in Czech',
+      description: 'Extract vital information',
       options: [
         {
           name: 'count',

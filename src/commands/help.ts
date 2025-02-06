@@ -35,7 +35,7 @@ Summarize messages between two message links
 Summarize messages between two message IDs
 
 **/vital [count]**
-Extract vital information in Czech
+Extract vital information
 - count: Number of messages to analyze (default: 100)
 
 **/find [prompt] [count]**

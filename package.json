@@ -1,5 +1,5 @@
 {
-  "name": "discord-ai-summarizer",
+  "name": "discord-ai-helper",
   "private": true,
   "scripts": {
     "build": "tsc",
